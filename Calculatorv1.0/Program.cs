@@ -30,24 +30,28 @@ namespace Calculatorv1._0
 
             //code for operation
             Console.WriteLine("What type of operation would you like to do?");
-            Console.WriteLine("Enter a for addition, s for subtraction, m for multiplication, any other key for division");
+            Console.WriteLine("Enter a for addition, s for subtraction, m for multiplication, d for division");
             answer = Console.ReadLine();
 
-            if(answer == "a")
+            switch (answer)
             {
-                result = num1 + num2;
-            } 
-            else if(answer == "s") {
-                result = num1 - num2;
+                case "a":
+                    result = num1 + num2;
+                    break;
+                case "s":
+                    result = num1 - num2;
+                    break;
+                case "m":
+                    result = num1 * num2;
+                    break;
+                case "d":
+                    result = num1 / num2;
+                    break;
+
+                default:
+                    throw new InvalidOperationException("Invalid operator, choose between (a, s, m & d)");
             }
-            else if(answer == "m") {
-                result = num1 * num2;
-            }
-            else
-            {
-               result = num1 / num2;
-            }
-           
+
             Console.WriteLine("The result is " + result);
             Console.WriteLine("Thank you for using me, calculatorv1.0");
             Console.ReadKey();
